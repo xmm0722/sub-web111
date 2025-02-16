@@ -29,12 +29,14 @@
 curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo -E bash -
 sudo yum install -y nodejs
 curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
+npm install -g yarn
 ````
 对于Debian/Ubuntu 系统
 ```shell
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
+npm install -g yarn
 ````
 
 命令执行完毕以后，请运行下面的代码查询 Node 与 Yarn 是否安装成功，若是成功会返回版本号，如下图。
