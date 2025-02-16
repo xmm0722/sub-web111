@@ -20,48 +20,31 @@
   - 独立各类后端配置到 .env 文件中，现在修改后端只需要修改 .env 即可。
 
 
-## Docker
+搭建Sub-Web前端
+更新系统并安装 Node 与 Yarn
+依次运行下面四行代码，若是 Debian/Ubuntu 系统，请自行替换下面前两行命令中的 yum 为 apt
 
-```shell
-docker run -d -p 58080:80 --restart always --name subweb careywong/subweb:latest
-```
+yum update -y
+yum install -y curl wget sudo nodejs git
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install -g yarn
+命令执行完毕以后，请运行下面的代码查询 Node 与 Yarn 是否安装成功，若是成功会返回版本号，如下图。
 
-若需要对代码进行修改，你需要在本地构建镜像并运行。
-注：每次修改代码，你都需要重新执行 docker build 来执行打包操作。
-
-```shell
-docker -v
-Docker version 23.0.4, build f480fb1
-
-docker build -t subweb-local:latest .
-docker run -d -p 58080:80 --restart always --name subweb subweb-local:latest
-```
-
-## Requirements
-
-你需要安装 [Node](https://nodejs.org/zh-cn/) 与 [Yarn](https://legacy.yarnpkg.com/en/docs/install) 来安装依赖与打包发布。你可以通过以下命令查看是否安装成功。
-注：以下步骤为 Ubuntu 下相应命令，其他系统请自行修改。为了方便后来人解决问题，有问题请发 issue。
-
-```shell
 node -v
-v20.xx.x
+yarn --version
 
-yarn -v
-1.22.22
-```
+下载并安装 Sub-Web
+拉取 sub-web 程序，并进入 sub-web 文件夹
 
-## Install
+git clone https://github.com/CareyWang/sub-web.git
+cd sub-web
+在项目目录中安装构建依赖项，构建的过程稍微有点长
 
-```shell
 yarn install
-```
+使用 webpack 运行 Web 客户端以进行本地开发。
 
-## Usage
-
-```shell
 yarn serve
-```
-
+到目前为止，浏览器访问 http://服务器ip:8080/ 应该可以进行前端 sub-web 的预览了。
 浏览器访问 <http://localhost:8080/>
 
 ## Deploy
