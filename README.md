@@ -21,9 +21,9 @@
 
 搭建Sub-Web前端
 更新系统并安装 Node 与 Yarn
-搭建Sub-Web前端
-更新系统并安装 Node 与 Yarn
 依次运行下面四行代码.
+
+
 对于CentOS/RHEL系统
 ```shell
 curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo -E bash -
