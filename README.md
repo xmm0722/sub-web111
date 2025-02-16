@@ -19,34 +19,45 @@
 
   - 独立各类后端配置到 .env 文件中，现在修改后端只需要修改 .env 即可。
 
-
 搭建Sub-Web前端
 更新系统并安装 Node 与 Yarn
-依次运行下面四行代码，若是 Debian/Ubuntu 系统，请自行替换下面前两行命令中的 yum 为 apt
+搭建Sub-Web前端
+更新系统并安装 Node 与 Yarn
+依次运行下面四行代码.
+对于CentOS/RHEL系统
+```shell
+curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo -E bash -
+sudo yum install -y nodejs
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
+````
+对于Debian/Ubuntu 系统
+```shell
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
+````
 
-yum update -y
-yum install -y curl wget sudo nodejs git
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm install -g yarn
 命令执行完毕以后，请运行下面的代码查询 Node 与 Yarn 是否安装成功，若是成功会返回版本号，如下图。
-
+```shell
 node -v
 yarn --version
-
+```
 下载并安装 Sub-Web
 拉取 sub-web 程序，并进入 sub-web 文件夹
-
+```shell
 git clone https://github.com/CareyWang/sub-web.git
 cd sub-web
+```
 在项目目录中安装构建依赖项，构建的过程稍微有点长
-
+```shell
 yarn install
+```
 使用 webpack 运行 Web 客户端以进行本地开发。
-
+```shell
 yarn serve
 到目前为止，浏览器访问 http://服务器ip:8080/ 应该可以进行前端 sub-web 的预览了。
 浏览器访问 <http://localhost:8080/>
-
+```
 ## Deploy
 
 发布到线上环境，你需要安装依赖，执行以下打包命令，生成的 dist 目录即为发布目录。如需修改默认后端，请修改 src/views/Subconverter.vue 中 **defaultBackend** 配置项。
@@ -54,7 +65,10 @@ yarn serve
 ```shell
 yarn build
 ```
+安装完成到此结束接下来看
+https://v2rayssr.com/sub-web.html
 
+后面无关紧要
 你需要安装 nginx (或其他 web 服务器)并正确配置。以下为示例配置，你需要修改 example.com 为自己域名并配置正确的项目根路径（https 自行配置）。
 
 ```shell
